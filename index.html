@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelloJI: Online Video & Chats</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'poppins', sans-serif;
+        }
+        .container{
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column; 
+            overflow: hidden;
+        }
+        .container img#bg{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+        }
+        .app_data{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            transform: translate(-50%,-50%);
+            background: rgba(0,0,0,0.5);
+        }
+        .app_data div{
+            margin-left: 20px;
+        }
+        .app_data div h2{
+            color: #ffffff;
+        }
+        .app_data p{
+            color: #ffffff;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+        .app_data img{
+            height: 80px;
+            width: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .container button{
+            height: 45px;
+            width: 160px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            margin-top: 10px;
+            border-radius: 10px;
+            color: #ffffff;
+            background: #F06292;
+        }
+    </style>
+</head>
+<body onload="downloadApk()">
+    <div class="container">
+        <img src="bg.jpeg" alt="bg" id="bg">
+        <div class="app_data">
+            <img src="icon.png" alt="icon">
+            <div>
+              <h2>HelloJI</h2>
+              <p>Online Video & Chats with girls</p>
+              <button onclick="downloadApk()">Download</button>
+            </div>
+        </div>
+    </div>
+
+ <script>
+    function downloadApk(){
+    var anchor = document.createElement('a');
+    anchor.href = "helloji.aab";
+    anchor.target = '_blank';
+    anchor.download = "HelloJI";
+    anchor.click();
+    }
+ </script>
+</body>
+</html>
