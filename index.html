@@ -3,12 +3,16 @@
   <body>
     <div>
       <img src="" class="epaper"/>
+      <button onclick="loadNextPage()">Next Page</button>
+      <p class="page-tv">1</p>
+      <button onclick="loadPrevPage()">Prev Page</button>
     </div>
 
     <script>
       let page = 1;
       let tempLoadURL = "https://www.dainiksambad.net/epaperimages//";
       let epaper = document.querySelector(".epaper");
+      let page_tv = document.querySelector(".page-tv");
       
       var today = new Date();
       var year = today.getFullYear();
@@ -23,6 +27,24 @@
       let currentDateTime = day+month+year;
       let finalURL = tempLoadURL+currentDateTime+"/page-"+page+".jpg";
       epaper.src = finalURL;
+
+      function loadNextPage(){
+        if(page < 50){
+          page++;
+          let finalURL = tempLoadURL+currentDateTime+"/page-"+page+".jpg";
+          epaper.src = finalURL;
+          page_tv.innerHTML = page;
+        }
+      }
+
+      function loadPrevPage(){
+        if(page > 1){
+          page--;
+          let finalURL = tempLoadURL+currentDateTime+"/page-"+page+".jpg";
+          epaper.src = finalURL;
+          page_tv.innerHTML = page;
+        }
+      }
     </script>
     
   </body>
