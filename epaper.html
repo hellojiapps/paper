@@ -1,0 +1,29 @@
+<html>
+  <head></head>
+  <body>
+    <div>
+      <img src="" class="epaper"/>
+    </div>
+
+    <script>
+      let page = 1;
+      let tempLoadURL = "https://www.dainiksambad.net/epaperimages//";
+      let epaper = document.querySelector(".epaper");
+      
+      var today = new Date();
+      var year = today.getFullYear();
+      var day = today.getDate();
+      let month = today.getMonth() + 1;
+      if(month < 10){
+          month = "0"+month;
+      }
+      if(day < 10){
+          day = "0"+day;
+      }
+      let currentDateTime = day+month+year;
+      let finalURL = tempLoadURL+currentDateTime+"/page-"+page+".jpg";
+      epaper.src = finalURL;
+    </script>
+    
+  </body>
+</html>
