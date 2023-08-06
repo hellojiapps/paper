@@ -7,11 +7,14 @@
       <button onclick="loadPrevPage()">Prev Page</button>
       <p class="page-tv">1</p>
       <button onclick="loadNextPage()">Next Page</button>
+      </br>
+      <button onclick="downloadImage()">Download Page</button>
     </div>
 
     <script>
       let page = 1;
       let tempLoadURL = "https://www.dainiksambad.net/epaperimages//";
+      let finalURL = "";
       let epaper = document.querySelector(".epaper");
       let page_tv = document.querySelector(".page-tv");
       
@@ -26,13 +29,13 @@
           day = "0"+day;
       }
       let currentDateTime = day+month+year;
-      let finalURL = tempLoadURL+currentDateTime+"/page-"+page+".jpg";
+      finalURL = tempLoadURL+currentDateTime+"/page-"+page+".jpg";
       epaper.src = finalURL;
 
       function loadNextPage(){
         if(page < 50){
           page++;
-          let finalURL = tempLoadURL+currentDateTime+"/page-"+page+".jpg";
+          finalURL = tempLoadURL+currentDateTime+"/page-"+page+".jpg";
           epaper.src = finalURL;
           page_tv.innerHTML = page;
         }
@@ -41,10 +44,14 @@
       function loadPrevPage(){
         if(page > 1){
           page--;
-          let finalURL = tempLoadURL+currentDateTime+"/page-"+page+".jpg";
+          finalURL = tempLoadURL+currentDateTime+"/page-"+page+".jpg";
           epaper.src = finalURL;
           page_tv.innerHTML = page;
         }
+      }
+
+      function downloadImage(){
+        window.open(finalURL);
       }
     </script>
     
